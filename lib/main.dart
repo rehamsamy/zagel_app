@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 
+import 'cons.dart';
 import 'controller/product_controller.dart';
 import 'main_page_screen.dart';
 
@@ -15,6 +17,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: [
+      SystemUiOverlay.bottom,
+      SystemUiOverlay.top
+    ]);
+
+    Cons.buildColors(context);
     //int x=5;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -23,7 +32,8 @@ class MyApp extends StatelessWidget {
           primaryColor: Color.fromARGB(255,213,177,57),
           unselectedWidgetColor: Color.fromARGB(255,123,196,229),
           // rgba(228,190,55,255)
-          accentColor: Color.fromARGB(255,123,196,229),
+        //  accentColor: Color.fromARGB(255,123,196,229),
+          accentColor: Colors.orange,
           canvasColor: Colors.white,
           appBarTheme: AppBarTheme(
               backgroundColor: Colors.white,
@@ -37,10 +47,10 @@ class MyApp extends StatelessWidget {
 
       ),
       home: MainPageScreen(),
-      routes: {
-        MainPageScreen.route:(_)=>MainPageScreen(),
-
-      },
+      // routes: {
+      //   MainPageScreen.route:(_)=>MainPageScreen(),
+      //
+      // },
     );
   }
 }

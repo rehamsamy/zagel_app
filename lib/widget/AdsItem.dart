@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:zagel_app/models/category.dart';
+import 'package:zagel_app/models/ads_model.dart';
+import 'package:zagel_app/models/category_model.dart';
 
 class AdsItem extends StatelessWidget {
-  // Category item;
-  //
-  //
-  // CategoryItem(this.item);
+ AdsModel model;
+
+ AdsItem(this.model);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class AdsItem extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Image.network(
-                        'https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg'
+                       model.image
                         ,
                         height: 200.0,
                         width: 300.0,
@@ -42,8 +42,8 @@ class AdsItem extends StatelessWidget {
                       child:Container(
                         width: 300,
                         height: 50,
-                        color: Colors.deepPurple,
-                        child: Center(child: Text('Hello',style: TextStyle(color: Colors.white),),),
+                        color: Color.fromARGB(255, 125,95,149),
+                        child: Center(child: Text(model.name,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w200),),),
                       ),
 
                     ),

@@ -1,11 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 
-class Service{
+class CompanyModel{
   String image;
   String name;
   Color color;
 
-  Service(this.image, this.name, this.color);
+  CompanyModel(this.image, this.name, this.color);
 }

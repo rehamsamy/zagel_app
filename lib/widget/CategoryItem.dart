@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:zagel_app/models/category.dart';
+import 'package:zagel_app/models/category_model.dart';
 
 class CategoryItem extends StatelessWidget {
-  // Category item;
-  //
-  //
-  // CategoryItem(this.item);
+  CategoryModel model;
+
+
+  CategoryItem(this.model);
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +17,20 @@ class CategoryItem extends StatelessWidget {
              padding: EdgeInsets.all(8),
              child: ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
-                child: Image.network(
-                  'https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg'
+
+              child:  Image.network(
+                 // 'https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg'
+                  model.image
                  ,
                   height: 90.0,
-                  width: 80.0,
+                  width: 90.0,
                     fit: BoxFit.cover
                 ),
 
               ),
            ),
-          SizedBox(height: 10,),
-          Center(child: Text('name',style: TextStyle(fontSize: 10),),)
+         // SizedBox(height: 5,),
+          Center(child: Text(model.name,style: TextStyle(fontSize: 15,color: Colors.black),),)
         ],
 
       ),

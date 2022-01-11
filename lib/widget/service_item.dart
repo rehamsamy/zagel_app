@@ -1,38 +1,36 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:zagel_app/models/category.dart';
+import 'package:zagel_app/models/category_model.dart';
+import 'package:zagel_app/models/service_model.dart';
 
 class ServiceItem extends StatelessWidget {
-  // Category item;
-  //
-  //
-  // CategoryItem(this.item);
+ServiceModel model;
+ServiceItem(this.model);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(1.0),
       child: Container(
         child: Column(
           children: [
             Container(
-                height: 120.0,
-                width: 180.0,
+                height: 150.0,
+                width: 200.0,
                padding: EdgeInsets.all(8),
                 decoration:BoxDecoration(
-                    color: Colors.deepOrange,
+                    color: model.color,
                     borderRadius: BorderRadius.circular(20)
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Center(child: Text('name',style: TextStyle(fontSize: 20),),),
-                    Icon(Icons.phone_android,size: 50,),
-                    // Image.network( 'https://api.time.com/wp-content/uploads/2019/08/better-smartphone-photos.jpg',
-                    //     height: 40.0,
-                    //     width: 40.0,
-                    //     fit: BoxFit.cover),
-
+                    Image.network( model.image,
+                        height: 20.0,
+                        width: 20.0,
+                        fit: BoxFit.contain),
+                    Center(child: Text(model.name,style: TextStyle(fontSize: 10),),),
+                   // Icon(Icons.phone_android,size: 50,),
                   ],
                 )
             ),
