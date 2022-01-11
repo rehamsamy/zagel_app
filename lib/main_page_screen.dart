@@ -29,156 +29,153 @@ class _MainPageScreenState extends State<MainPageScreen> {
   @override
   Widget build(BuildContext context) {
 
-    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
-    //   SystemUiOverlay.bottom,
-    //   SystemUiOverlay.top
-    // ]);
-
    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
-    return  Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        key: _scaffoldKey,
-        body:CustomScrollView(
-            slivers: [
-              buildAppBar(context),
+    return  SafeArea(
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+          key: _scaffoldKey,
+          body:CustomScrollView(
+              slivers: [
+                buildAppBar(context),
 
-              // buildAppBar(context),
-              SliverList(delegate: SliverChildListDelegate(
-                  [
-                    buildListTileLabel(' الاقسام ','المزيد',Icons.category_outlined),
-                    Container(
-                      height: 150,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemBuilder: (_,inx)=>
-                            CategoryItem(Cons.categoriesList[inx]),
-                        itemCount: Cons.categoriesList.length,
-                        scrollDirection: Axis.horizontal,
-                      ),
-                    ),
-                    buildListTileLabel('دليلك لاهم الشركات','المزيد',Icons.commute),
-                    Container(
-                      height: 150,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemBuilder: (_,inx)=>
-                            CompanyItem(Cons.companyList[inx]),
-                        itemCount: Cons.companyList.length,
-                        scrollDirection: Axis.horizontal,
-                      ),
-                    ),
-                    buildListTileLabel('الاعلانات المبوبه','المزيد',Icons.ac_unit),
-                    Container(
-                      height: 240,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemBuilder: (_,inx)=>
-                            AdsItem(Cons.adsList[inx]),
-                        itemCount: Cons.adsList.length,
-                        scrollDirection: Axis.horizontal,
-                      ),
-                    ),
-                    buildListTileLabel('خدمات مميزة','المزيد',Icons.miscellaneous_services),
-                    Container(
-                      height: 480,
-                        child: GridView.count(
+                // buildAppBar(context),
+                SliverList(delegate: SliverChildListDelegate(
+                    [
+                      buildListTileLabel(' الاقسام ','المزيد',Icons.category_outlined),
+                      Container(
+                        height: 150,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemBuilder: (_,inx)=>
+                              CategoryItem(Cons.categoriesList[inx]),
+                          itemCount: Cons.categoriesList.length,
                           scrollDirection: Axis.horizontal,
-                            crossAxisCount:  3,
-                            childAspectRatio:1.1,
-                            //padding: const EdgeInsets.all(4.0),
-                            mainAxisSpacing: 0,
-                            crossAxisSpacing: 0,
-                            children: Cons.servicesList
-                          .map((e) => Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: ServiceItem(e),
-                              ))
-                          .toList())
-                      // GridView(
-                      //   children:
-                      //   Cons.servicesList.map((e) => Padding(
-                      //     padding: const EdgeInsets.all(8.0),
-                      //     child: ServiceItem(e),
-                      //   )).toList()
-                      //   ,
-                      //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      //     childAspectRatio: 5/4,
-                      //    mainAxisExtent: 3,
-                      //     crossAxisCount: Cons.servicesList.length,
-                      //     mainAxisSpacing: 10,
-                      //     crossAxisSpacing: 10,
-                      //   ),
-                      //
-                      //
-                      // ),
-                    )
+                        ),
+                      ),
+                      buildListTileLabel('دليلك لاهم الشركات','المزيد',Icons.commute),
+                      Container(
+                        height: 150,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemBuilder: (_,inx)=>
+                              CompanyItem(Cons.companyList[inx]),
+                          itemCount: Cons.companyList.length,
+                          scrollDirection: Axis.horizontal,
+                        ),
+                      ),
+                      buildListTileLabel('الاعلانات المبوبه','المزيد',Icons.ac_unit),
+                      Container(
+                        height: 240,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemBuilder: (_,inx)=>
+                              AdsItem(Cons.adsList[inx]),
+                          itemCount: Cons.adsList.length,
+                          scrollDirection: Axis.horizontal,
+                        ),
+                      ),
+                      buildListTileLabel('خدمات مميزة','المزيد',Icons.miscellaneous_services),
+                      Container(
+                        height: 480,
+                          child: GridView.count(
+                            scrollDirection: Axis.horizontal,
+                              crossAxisCount:  3,
+                              childAspectRatio:1.1,
+                              //padding: const EdgeInsets.all(4.0),
+                              mainAxisSpacing: 0,
+                              crossAxisSpacing: 0,
+                              children: Cons.servicesList
+                            .map((e) => Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: ServiceItem(e),
+                                ))
+                            .toList())
+                        // GridView(
+                        //   children:
+                        //   Cons.servicesList.map((e) => Padding(
+                        //     padding: const EdgeInsets.all(8.0),
+                        //     child: ServiceItem(e),
+                        //   )).toList()
+                        //   ,
+                        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        //     childAspectRatio: 5/4,
+                        //    mainAxisExtent: 3,
+                        //     crossAxisCount: Cons.servicesList.length,
+                        //     mainAxisSpacing: 10,
+                        //     crossAxisSpacing: 10,
+                        //   ),
+                        //
+                        //
+                        // ),
+                      )
 
 
-                    ,buildCaroselSlider(),
-                    SizedBox(height: 20,),
+                      ,buildCaroselSlider(),
+                      SizedBox(height: 20,),
 
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(Icons.add_a_photo_outlined,size: 30,color: Colors.blue.shade200,),
-                        Icon(Icons.accessibility_new_sharp,size: 30,color: Colors.purple,),
-                        Icon(Icons.email,size: 30,color: Colors.orange,),
-                        Icon(Icons.facebook,size: 30,color: Colors.blue.shade700,),
-                      ],),
-                    SizedBox(height: 20,),
-                  ]
+                      Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(Icons.add_a_photo_outlined,size: 30,color: Colors.blue.shade200,),
+                          Icon(Icons.accessibility_new_sharp,size: 30,color: Colors.purple,),
+                          Icon(Icons.email,size: 30,color: Colors.orange,),
+                          Icon(Icons.facebook,size: 30,color: Colors.blue.shade700,),
+                        ],),
+                      SizedBox(height: 20,),
+                    ]
 
-              ),
-              ),
-            ]),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+                ),
+                ),
+              ]),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-        bottomNavigationBar: Container(
-          height: 65,
-          padding: EdgeInsets.symmetric(horizontal: 8,vertical: 2),
-          child: BottomAppBar(
-              child: new Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.home),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.notification_important_rounded),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.favorite_border),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.person),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                  ]
-              ),
-              color: Colors.blueGrey,
-              shape: AutomaticNotchedShape(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(25),
-                    )),
-              )),
+          bottomNavigationBar: Container(
+            height: 65,
+            padding: EdgeInsets.symmetric(horizontal: 8,vertical: 2),
+            child: BottomAppBar(
+                child: new Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.home),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.notification_important_rounded),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.favorite_border),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.person),
+                        color: Colors.white,
+                        onPressed: () {},
+                      ),
+                    ]
+                ),
+                color: Colors.blueGrey,
+                shape: AutomaticNotchedShape(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(25),
+                      )),
+                )),
+          ),
+
+          floatingActionButton: FloatingActionButton(
+            onPressed: () { },
+            tooltip: 'Increment',
+            child: Icon(Icons.add,),
+            elevation: 10,
+          ),
+          endDrawer: MyDrawer(),
         ),
-
-        floatingActionButton: FloatingActionButton(
-          onPressed: () { },
-          tooltip: 'Increment',
-          child: Icon(Icons.add,),
-          elevation: 10,
-        ),
-        endDrawer: MyDrawer(),
       ),
     );
   }

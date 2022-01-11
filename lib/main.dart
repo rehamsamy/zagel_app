@@ -18,10 +18,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: [
-      SystemUiOverlay.bottom,
-      SystemUiOverlay.top
-    ]);
 
     Cons.buildColors(context);
     //int x=5;
